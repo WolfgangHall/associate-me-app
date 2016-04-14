@@ -15,6 +15,7 @@
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css">
     <link href="../css/app.css" rel="stylesheet">
+    <link href="../css/cards.css" rel="stylesheet">
     
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/1.4.5/socket.io.min.js"></script>
 
@@ -37,7 +38,7 @@
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
           <li ng-class="{active: isActive('/rooms')}"><a href="/rooms">Rooms</a></li>
-          <!-- <li ng-class="{active: isActive('/chat/:room')}"><a href="/chat">Chat</a></li> -->
+          <li ng-class="{active: isActive('/chat')}"><a href="/chat">Chat</a></li>
           <li ng-class="{active: isActive('/register')}"><a href="/register">Register</a></li>
           <li ng-class="{active: isActive('/login')}"><a href="/login">Login</a></li>
           <li ng-class="{active: isActive('/upload')}"><a href="/upload">Your Profile</a></li>
@@ -71,9 +72,11 @@
   <script src="../js/controllers/loginController.js"></script>
   <script src="../js/controllers/logoutController.js"></script>
   <script src="../js/controllers/userProfileController.js"></script>
+  <script src="../js/controllers/roomsController.js"></script>
   <script src="../js/services/socketFactory.js"></script>
   <script src="../js/custom/home.js"></script>
   
+
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/bootbox.js/4.4.0/bootbox.js"></script>
 

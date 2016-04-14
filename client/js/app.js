@@ -36,6 +36,13 @@ angular.module('chatApp', [
         controller: 'roomController'
       })
 
+      .state('rooms', {
+        url: '/rooms',
+        templateUrl: 'partials/partial-rooms.html',
+        controller: 'roomsController',
+        // controllerAs: 'register'
+      })
+
       .state('userProfile', {
         url: '/upload',
         templateUrl: 'partials/partial-userProfile.html',

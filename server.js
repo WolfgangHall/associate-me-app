@@ -20,9 +20,13 @@ var port = process.env.PORT || 8080;
 
 
 // Database Setup
+// var db = require('./client/config/config.js');
+
 var mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/userRegistration');
+// mongoose.connect(db.url); // connect to our database
+
 
 var db = mongoose.connection;
 
