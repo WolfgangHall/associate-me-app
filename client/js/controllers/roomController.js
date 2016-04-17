@@ -1,5 +1,5 @@
 angular.module('chatApp')
-  .controller('roomController', function($scope){
+  .controller('roomController', function($scope,$http,$cookies){
 
     $scope.rooms = [
       {'name': 'Biology', 'description': 'Discuss the wonders of Bio'},
@@ -10,6 +10,22 @@ angular.module('chatApp')
       {'name': 'React JS', 'description': 'Discuss ReactJS projects'}
     ];
 
+    $scope.addRooms = function(){
+      var newRoom = {
+        roomName : $scope.roomName,
+        description : $scope.description,
+        moderator : $cookies.currentUser
+      };
+        $http.post('/rooms/new', newRoom).then(function(){
+          $scope.roomName = '';
+          $scope.description = '';
+          $location.path('/rooms/'+ roomName);
+
+
+        });
+
+      };
+    
 
 
 

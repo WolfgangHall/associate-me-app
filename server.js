@@ -47,6 +47,7 @@ db.once('open', function() {
 
 var User = require('./server/models/userModel.js');
 var Message = require('./server/models/messageModel.js');
+var Room = require('./server/models/rooms.js');
 
 
 //Requriements for Picture Upload
@@ -89,6 +90,23 @@ app.get('/*', function(req, res){
 });
 
 
+//making a new room route
+app.post('/rooms/new', function(req,res){
+
+  var room = new Room({
+    roomName: req.body.roomName,
+    description: req.body.description,
+    moderator: req.currentUser
+      
+  });
+  room.save(function(err){
+    if (err) res.send(err);
+    return res.send();
+  });
+console.log('room saved');
+});
+
+
 
 //registration route
 app.post('/users/register', function(req, res){
@@ -105,10 +123,10 @@ app.post('/users/register', function(req, res){
         if (err) res.send(err);
 
         return res.send();
-      })
-    })
-  })
-})
+      });
+    });
+  });
+});
 
 
 //login route
@@ -124,13 +142,13 @@ app.put('/users/login', function(req, res, next){
         } else {
           return res.status(404).json({error: 'Password not found'});
         }
-      })
+      });
     } else {
       return res.status(404).json({error: 'User not found'});
     }
 
-  })
-})
+  });
+});
 
 //route for img upload
 app.post('/upload', uploading.single('image'), function(req, res) { 

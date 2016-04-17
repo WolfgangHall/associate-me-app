@@ -1,5 +1,17 @@
 <div class="container-fluid" id="roomsPage">
   <div class="row">
+  <!-- name the room -->
+  <div class="form-group" id = "room-name">
+  <label for="roomname"> Room Name:</label>
+  <input class= "form-control" placeholder="Name of Your Room" ng-model="roomName" required>
+  </div>
+  <!--description of the room -->
+  <div class="form-group" id = "room-description">
+  <label for="roomdescription"> Room Description:</label>
+  <input class= "form-control" placeholder="Description of Your Room" ng-model="description" required>
+  </div>
+  <button type="submit" class="btn btn-primary btn-block"  ng-click="addRooms()">Submit</button>
+
     <div id="searchRooms">
       Search for a room: <input class="searchRoomQuery" ng-model="query"></input>
     </div>
@@ -18,5 +30,4 @@
     </div>
   </div>
 </div>
-
 
