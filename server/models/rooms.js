@@ -20,6 +20,11 @@ var RoomSchema = new Schema({
     },
     description: {
       type: String
+    },
+    roomLocation: {
+      type: Number,
+      min: 5,
+      max: 5
     }
 
 });

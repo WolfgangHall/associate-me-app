@@ -133,8 +133,8 @@ app.post('/createRoom', function(req, res){
     roomName: req.body.roomName,
     description: req.body.description,
     moderator: req.body.moderator,
-    roomNameTrim: req.body.roomNameTrim
-
+    roomNameTrim: req.body.roomNameTrim,
+    roomLocation: req.body.roomLocation
   });
 
   room.save(function(err){

@@ -1,5 +1,5 @@
 <div class="container-fluid" id="rooms-page">
-<div class="alert alert-success ng-hide" role="alert" ng-show="roomSubmit">Room Successfully Created</div>
+  <div class="alert alert-success ng-hide" role="alert" ng-show="roomSubmit">Room Successfully Created</div>
   <div data-ng-init="getRooms()">
     <div class="row"> 
       <div id="searchRooms">
@@ -52,6 +52,11 @@
         <div class="form-group">
           <label for="room-description">Room Description</label>
           <input type="text" class="form-control" id="room-description" placeholder="Describe Your Room" ng-model="roomDescription">
+        </div>
+        <div class="form-group">
+          <label for="room-location">Room Location</label>
+          <input type="text" class="form-control" id="room-location" placeholder="zip" ng-model="roomLocation">
+          <button class="btn btn-block" ng-click="getLocation()">Get Location</button>
         </div>
       </div>
       <div class="modal-footer">
