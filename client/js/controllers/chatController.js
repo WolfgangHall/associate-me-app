@@ -49,7 +49,7 @@ angular.module('chatApp').controller('chatController', ['$scope', '$http', 'Sock
   if($cookies.get('token')){
     $scope.sendMessage = function(msg) {
       if(msg !== null && msg !== '' && msg.length <= 140) {
-        Socket.emit('message', {message:msg});
+        Socket.emit('message', {message:msg, room:$stateParams.room});
       } else {
         bootbox.alert("You cannot leave an empty message and it must be less than 140 characters");
       }

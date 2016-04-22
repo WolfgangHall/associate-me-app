@@ -216,9 +216,9 @@ io.on('connection', function(socket){
 
   socket.on('message', function(data){
     console.log(data);
-    io.to(room).emit('message', {username: username, message: data.message, _roomId: data.id});
+    io.to(room).emit('message', {username: username, message: data.message, room:room});
 
-    var newMessage = new Message({message: data.message, username: username, created: Date.now(), _roomId: data.id});
+    var newMessage = new Message({message: data.message, username: username, created: Date.now(), room:room});
     console.log(data + ' thats data m80 ');
     console.log(newMessage);
 

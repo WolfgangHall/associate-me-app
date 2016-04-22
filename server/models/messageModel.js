@@ -18,8 +18,9 @@ var Schema = mongoose.Schema;
       trim: true
     },
     room :{
-      type: Schema.Types.ObjectId,
-      ref: 'Room'
+      type: String
+      // type: Schema.Types.ObjectId,
+      // ref: 'Room'
     }
     
     });
