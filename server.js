@@ -92,9 +92,17 @@ app.get('/rooms', function(req,res){
       });
     });
 
-app.get('/rooms/{{room.name}}', function(req,res){
-var theRoom = req.params.roomName;
-console.log(theRoom);
+app.get('/chat/:room', function(req,res){
+var theRoom = req.params.room;
+console.log(theRoom + 'in server');
+Message.find({}, function (err, messages) {
+  res.json(messages);
+
+
+
+});
+
+
 
 });
 
@@ -163,8 +171,8 @@ app.put('/users/login', function(req, res, next){
     } else {
       return res.status(404).json({error: 'User not found'});
     }
-  })
-})
+  });
+});
 
 //route for img upload
 app.post('/upload', uploading.single('image'), function(req, res) { 
@@ -208,9 +216,10 @@ io.on('connection', function(socket){
 
   socket.on('message', function(data){
     console.log(data);
-    io.to(room).emit('message', {username: username, message: data.message});
+    io.to(room).emit('message', {username: username, message: data.message, _roomId: data.id});
 
-    var newMessage = new Message({message: data.message, username: username, created: Date.now()});
+    var newMessage = new Message({message: data.message, username: username, created: Date.now(), _roomId: data.id});
+    console.log(data + ' thats data m80 ');
     console.log(newMessage);
 
     newMessage.save(function(err){

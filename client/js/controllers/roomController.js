@@ -10,6 +10,7 @@ angular.module('chatApp').controller('roomController', ['$scope','$http','$locat
 
   };
 
+
   $scope.createRoom = function(){
     var newRoom = {
       roomName: $scope.roomName,

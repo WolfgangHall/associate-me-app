@@ -19,7 +19,7 @@ angular.module('chatApp').controller('registerController', ['$scope','$http','$l
       $location.path('/login');
 bootbox.alert('Sucessfully Registered. Please Log In');
 });
-}
+};
 
 
 }]);

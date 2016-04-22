@@ -21,7 +21,8 @@ var RoomSchema = new Schema({
     description: {
       type: String
     }
+    });
 
-});
+
 
 module.exports = mongoose.model('Room', RoomSchema);
