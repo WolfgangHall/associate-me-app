@@ -223,8 +223,32 @@ io.on('connection', function(socket){
     console.log(newMessage);
 
     newMessage.save(function(err){
-      if (err) throw err;
-      console.log('new message saved');
+      if (err){ 
+        throw err;
+      } else {
+      
+
+      Room.findOneAndUpdate({roomNameTrim:room}, {$push: {'messages': data.message}}, {new:true}, function(err, dbRoom){
+        // console.log(roomTrim);
+        // console.log(Room.roomName);
+        // console.log(roomName);
+        console.log(data.message);
+        console.log(room);
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('i did something');
+          console.log(dbRoom);
+          return dbRoom;
+        }
+
+        //   res.send(err);
+        // } else {
+        //   res.send(dbRoom);
+        // }
+        });
+      }
+      
     });
   });
 
