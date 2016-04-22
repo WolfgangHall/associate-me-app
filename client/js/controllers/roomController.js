@@ -27,9 +27,6 @@ angular.module('chatApp').controller('roomController', ['$scope','$http','$locat
       $location.path('/rooms');
     });
     $('#roomForm').modal('hide');
-    function(){
-      
-    }
   };
 
 

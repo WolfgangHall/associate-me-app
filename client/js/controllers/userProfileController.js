@@ -1,19 +1,13 @@
-angular.module('chatApp').controller('userProfileController', ['$scope','$http', function($scope, $http){
+angular.module('chatApp').controller('userProfileController', ['$scope','$http','$location', '$cookies', function($scope, $http, $location, $cookies){
 
-  $scope.uploadImg = function(){
-      var data = {
-      userImg: $scope.image,
-      };
-        console.log(data);
-  $http({
-    method: "POST",
-    url: "/upload",
-    data:data
-  }).then(function(result){
-        console.log(result);
+var userName = $cookies.get('currentUser');
+
+  $scope.getUserRooms = function(){
+    $http.get('/users/room').then(function(response){
+      $scope.roomCount = response.data.length;
+      $scope.rooms = response.data;
     });
-  };
-    
+  };  
 
 
-  }]);
+}]);
