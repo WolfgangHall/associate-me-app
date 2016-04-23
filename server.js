@@ -95,9 +95,11 @@ app.get('/rooms', function(req,res){
 app.get('/chat/:room', function(req,res){
 var theRoom = req.params.room;
 console.log(theRoom + 'in server');
-Message.find({}, function (err, messages) {
+Message.find({theRoom : { $exists: true}}, function (err, messages) {
+  console.log('i tired to find messages in room whatever it is');
+  console.log(messages);
   res.json(messages);
-
+// db.things.find( { ln : { $exists : true } } );
 
 
 });
