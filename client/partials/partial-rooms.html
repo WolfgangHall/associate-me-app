@@ -5,7 +5,16 @@
       <div id="searchRooms">
         Search for a room: <input class="searchRoomQuery" ng-model="query"></input>
       </div>
-      <div ng-repeat='room in rooms | filter:query'>
+      <div id="orderRooms">
+        Order by: 
+        <select ng-model="orderProp">
+          <option value="roomName">A-Z</option>
+          <option value="-roomName">Z-A</option>
+          <option value="-created">Newest</option>
+          <option value="created">Oldest</option>
+        </select>
+      </div>
+      <div ng-repeat='room in rooms | filter:query | orderBy:orderProp'>
         <div class="col-md-4">
           <div class="card">
             <div class="card-content">
