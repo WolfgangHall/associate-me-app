@@ -10,8 +10,8 @@
         <select ng-model="orderProp">
           <option value="roomName">A-Z</option>
           <option value="-roomName">Z-A</option>
-          <option value="-created">Newest</option>
-          <option value="created">Oldest</option>
+          <option value="-created">Newest-Oldest</option>
+          <option value="created">Oldest-Newest</option>
         </select>
       </div>
       <div ng-repeat='room in rooms | filter:query | orderBy:orderProp'>

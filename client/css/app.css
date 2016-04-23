@@ -60,6 +60,14 @@ a:active{
   font-size: 120%;
 }
 
+#orderRooms {
+  padding-top: 0.5rem;
+  padding-left: 1.5rem;
+  padding-bottom: 2rem;
+  color: white;
+  font-size: 120%;
+}
+
 .searchRoomQuery {
   color: black;
   font-size: 110%;
