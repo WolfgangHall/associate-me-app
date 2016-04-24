@@ -3,9 +3,11 @@ angular.module('chatApp').controller('userProfileController', ['$scope','$http',
 var userName = $cookies.get('currentUser');
 
   $scope.getUserRooms = function(){
-    $http.get('/users/room').then(function(response){
+    console.log(userName);
+    $http.get('/users/' + userName).then(function(response){
       $scope.roomCount = response.data.length;
       $scope.rooms = response.data;
+      console.log(userName);
     });
   };  
 

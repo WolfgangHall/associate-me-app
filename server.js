@@ -105,13 +105,22 @@ Message.find({theRoom : { $exists: true}}, function (err, messages) {
   console.log(messages);
   res.json(messages);
 // db.things.find( { ln : { $exists : true } } );
+});
+});
 
+app.get('/users/:user', function(req,res){
+var theUser= req.params.user;
+console.log(theUser +'in server');
+Room.find({moderator: theUser}, function (err, userRooms){
+console.log('I tried to get the users rooms');
+console.log(userRooms);
+res.json(userRooms);
+
+});
 
 });
 
 
-
-});
 
 //catchall route
 app.get('/*', function(req, res){
