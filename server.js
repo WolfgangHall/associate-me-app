@@ -99,10 +99,12 @@ app.get('/rooms', function(req,res){
 
 app.get('/chat/:room', function(req,res){
 var theRoom = req.params.room;
+console.log(Room.messages);
 console.log(theRoom + 'in server');
-Message.find({theRoom : { $exists: true}}, function (err, messages) {
+Room.find({roomNameTrim : theRoom}, function (err, messages) {
   console.log('i tired to find messages in room whatever it is');
   console.log(messages);
+  console.log(messages.messages + 'i am messages in messages');
   res.json(messages);
 // db.things.find( { ln : { $exists : true } } );
 });
