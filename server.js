@@ -202,9 +202,10 @@ app.put('/users/login', function(req, res, next){
 //   res.status(204).end(); 
 // });
 
-app.delete('/deleteRoom/:room', function(req, res){
-console.log(req.body.id);
-  Room.remove({where:{_id:req.body.id}}, function(err, rmRoom){
+app.delete('/deleteRoom/:roomId', function(req, res){
+console.log(req.params.roomId);
+  Room.remove({_id:req.params.roomId}, function(err, rmRoom){
+    
   });
 });
 

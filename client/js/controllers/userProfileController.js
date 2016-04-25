@@ -13,8 +13,9 @@ angular.module('chatApp').controller('userProfileController', ['$scope','$http',
   }; 
 
 
-  $scope.deleteRoom = function(id){
-    $http.delete('/deleteRoom/' + $stateParams.room, {id:id}).then(function(response){
+  $scope.deleteRoom = function(roomId){
+    console.log(roomId);
+    $http.delete('/deleteRoom/' + roomId).then(function(response){
       console.log('deleted' + $stateParams.room);
     });
   };
