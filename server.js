@@ -203,11 +203,8 @@ app.put('/users/login', function(req, res, next){
 // });
 
 app.delete('/deleteRoom/:room', function(req, res){
-
-  Room.remove({roomNameTrim: req.params.room}, function(err, rmRoom){
-
-
-
+console.log(req.body.id);
+  Room.remove({where:{_id:req.body.id}}, function(err, rmRoom){
   });
 });
 
