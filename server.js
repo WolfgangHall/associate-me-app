@@ -203,9 +203,7 @@ app.put('/users/login', function(req, res, next){
 // });
 
 app.delete('/deleteRoom/:roomId', function(req, res){
-console.log(req.params.roomId);
   Room.remove({_id:req.params.roomId}, function(err, rmRoom){
-    
   });
 });
 
