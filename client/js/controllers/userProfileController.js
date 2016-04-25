@@ -1,6 +1,7 @@
 angular.module('chatApp').controller('userProfileController', ['$scope','$http','$location', '$cookies','$stateParams', function($scope, $http, $location, $cookies, $stateParams){
 
 var userName = $cookies.get('currentUser');
+$scope.room = $stateParams.room;
 
   $scope.getUserRooms = function(){
     console.log(userName);
@@ -16,7 +17,7 @@ var userName = $cookies.get('currentUser');
     var room = {
         
 
-    }
+    };
       $http.delete('/deleteRoom/' + stateParams.room).then(function(response){
         console.log('deleted' + $stateParams.room);
 

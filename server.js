@@ -85,11 +85,7 @@ app.use(logger('dev'));
 app.use(express.static('client'));
 
 
-app.get('/users/room', function(req,res){
-  Room.find({moderator: "plastic"}, function (err, rooms){
-    res.json(rooms);
-  });
-});
+
 
 app.get('/rooms', function(req,res){
   Room.find({}, function (err, rooms) {
