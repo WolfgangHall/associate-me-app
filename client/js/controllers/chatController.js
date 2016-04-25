@@ -10,7 +10,7 @@ angular.module('chatApp').controller('chatController', ['$scope', '$http', 'Sock
 
     $http.get('/chat/' + $stateParams.room).then(function(response){
       console.log('got here : getMessages tried to run on client');
-      $scope.storedMessages = response.data;
+      // $scope.storedMessages = response.data;
       console.log(response);
       console.log(response.data);
 

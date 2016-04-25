@@ -102,10 +102,17 @@ var theRoom = req.params.room;
 console.log(Room.messages);
 console.log(theRoom + 'in server');
 Room.find({roomNameTrim : theRoom}, function (err, messages) {
+
+  if (err){
+    console.log(err);
+  } else {
+
+  
   console.log('i tired to find messages in room whatever it is');
-  console.log(messages);
-  console.log(messages.messages + 'i am messages in messages');
+  console.log('this is messages :' +  messages);
+
   res.json(messages);
+}
 // db.things.find( { ln : { $exists : true } } );
 });
 });
@@ -121,6 +128,8 @@ res.json(userRooms);
 });
 
 });
+
+
 
 
 
@@ -193,9 +202,20 @@ app.put('/users/login', function(req, res, next){
 });
 
 //route for img upload
-app.post('/upload', uploading.single('image'), function(req, res) { 
-  res.status(204).end(); 
+// app.post('/upload', uploading.single('image'), function(req, res) { 
+//   res.status(204).end(); 
+// });
+
+app.delete('/deleteRoom/:room', function(req, res){
+
+  Room.remove({roomNameTrim: req.params.room}, function(err, rmRoom){
+
+
+
+  });
 });
+
+
 
 
 

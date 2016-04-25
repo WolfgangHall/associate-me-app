@@ -1,4 +1,4 @@
-angular.module('chatApp').controller('userProfileController', ['$scope','$http','$location', '$cookies', function($scope, $http, $location, $cookies){
+angular.module('chatApp').controller('userProfileController', ['$scope','$http','$location', '$cookies','$stateParams', function($scope, $http, $location, $cookies, $stateParams){
 
 var userName = $cookies.get('currentUser');
 
@@ -9,7 +9,23 @@ var userName = $cookies.get('currentUser');
       $scope.rooms = response.data;
       console.log(userName);
     });
-  };  
+  }; 
 
 
+  $scope.deleteRoom = function(){
+    var room = {
+        
+
+    }
+      $http.delete('/deleteRoom/' + stateParams.room).then(function(response){
+        console.log('deleted' + $stateParams.room);
+
+
+
+        
+      });
+
+  };
+
+// '/deleteRoom/' + $stateParams.room
 }]);

@@ -28,7 +28,7 @@
           <p class="text-center">{{room.description}}</p>
         </div>
         <div class="card-action">
-          <a class="btn btn-danger sharp btn-block" ng-click="deleteRoom()">Delete This Room</a>
+          <a class="btn btn-danger sharp btn-block" ng-click="deleteRoom()" href="/deleteRoom/{{room.roomNameTrim}}">Delete This Room</a>
         </div>
       </div>
     </div>
