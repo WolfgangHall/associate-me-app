@@ -1,5 +1,27 @@
-angular.module('chatApp').controller('chatController', ['$scope', 'Socket','$cookies', '$rootScope', '$stateParams', function($scope, Socket, $cookies, $rootScope, $stateParams){
+angular.module('chatApp').controller('chatController', ['$scope', '$http', 'Socket','$cookies', '$rootScope', '$stateParams', function($scope, $http, Socket, $cookies, $rootScope, $stateParams){
   Socket.connect();
+
+
+
+  $scope.getMessages = function(){
+    console.log ($scope.room + 'does this work');
+    console.log($stateParams.room + "in in getMessages");
+   
+
+    $http.get('/chat/' + $stateParams.room).then(function(response){
+      console.log('got here : getMessages tried to run on client');
+      // $scope.storedMessages = response.data;
+      console.log(response);
+      console.log(response.data);
+
+
+    });
+
+
+
+  };
+
+
 
   $scope.room = $stateParams.room;
 
@@ -27,7 +49,7 @@ angular.module('chatApp').controller('chatController', ['$scope', 'Socket','$coo
   if($cookies.get('token')){
     $scope.sendMessage = function(msg) {
       if(msg !== null && msg !== '' && msg.length <= 140) {
-        Socket.emit('message', {message:msg});
+        Socket.emit('message', {message:msg, room:$stateParams.room});
       } else {
         bootbox.alert("You cannot leave an empty message and it must be less than 140 characters");
       }
@@ -48,6 +70,7 @@ angular.module('chatApp').controller('chatController', ['$scope', 'Socket','$coo
 
   Socket.on('message', function(data) {
     $scope.messages.push(data);
+
   });
 
   Socket.on('add-user', function(data) {

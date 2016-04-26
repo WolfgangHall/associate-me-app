@@ -14,7 +14,7 @@
           <!-- <li ng-class="{active: isActive('/chat/:room')}"><a href="/chat">Chat</a></li> -->
           <li ng-hide='currentUser' ng-class="{active: isActive('/register')}"><a class="btn" href="/register">Register</a></li>
           <li ng-hide='currentUser' ng-class="{active: isActive('/login')}"><a class="btn" href="/login">Login</a></li>
-          <li class="dropdown" ng-show='currentUser' ng-class="{active: isActive('/profile')}"><a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn" href="#">{{currentUser}}</a>
+          <li class="dropdown" ng-show='currentUser' ng-class="{active: isActive('/users/{{currentUser}}')}"><a id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" class="btn" href="#">{{currentUser}}</a>
             <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
               <div class="col-md-12">
                 <div class="row">
@@ -27,7 +27,8 @@
                 </div>
                 <div class="row">
                   <div class="col-md-6 text-center">
-                    <a class="btn profile-btn" href="/profile">Profile</a>
+                    <a class="btn profile-btn" href="/users/{{currentUser}}">Profile</a>
+
                   </div>
                   <div class="col-md-6 text-center">
                     <a class="btn text-center profile-btn" ng-controller='logoutController' ng-click='logout()'>Logout</a>

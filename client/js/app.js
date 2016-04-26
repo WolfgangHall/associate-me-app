@@ -38,7 +38,7 @@ angular.module('chatApp', [
       })
 
       .state('userProfile', {
-        url: '/profile',
+        url: '/users/:user',
         templateUrl: 'partials/partial-userProfile.html',
         controller: 'userProfileController'
       });

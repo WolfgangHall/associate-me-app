@@ -20,8 +20,14 @@ var RoomSchema = new Schema({
     },
     description: {
       type: String
-    }
+    },
+    messages : [{
+      type: String
+      // type: Schema.Types.ObjectId,
+      // ref: 'Message'
+    }]
+    });
 
-});
+
 
 module.exports = mongoose.model('Room', RoomSchema);

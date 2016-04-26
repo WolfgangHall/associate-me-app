@@ -86,17 +86,48 @@ app.use(express.static('client'));
 
 
 
+
 app.get('/rooms', function(req,res){
   Room.find({}, function (err, rooms) {
        res.json(rooms);
       });
     });
 
-app.get('/rooms/{{room.name}}', function(req,res){
-var theRoom = req.params.roomName;
-console.log(theRoom);
+app.get('/chat/:room', function(req,res){
+var theRoom = req.params.room;
+console.log(Room.messages);
+console.log(theRoom + 'in server');
+Room.find({roomNameTrim : theRoom}, function (err, messages) {
+
+  if (err){
+    console.log(err);
+  } else {
+
+  
+  console.log('i tired to find messages in room whatever it is');
+  console.log('this is messages :' +  messages);
+
+  res.json(messages);
+}
+// db.things.find( { ln : { $exists : true } } );
+});
+});
+
+app.get('/users/:user', function(req,res){
+var theUser= req.params.user;
+console.log(theUser +'in server');
+Room.find({moderator: theUser}, function (err, userRooms){
+console.log('I tried to get the users rooms');
+console.log(userRooms);
+res.json(userRooms);
 
 });
+
+});
+
+
+
+
 
 //catchall route
 app.get('/*', function(req, res){
@@ -163,13 +194,20 @@ app.put('/users/login', function(req, res, next){
     } else {
       return res.status(404).json({error: 'User not found'});
     }
-  })
-})
+  });
+});
 
 //route for img upload
-app.post('/upload', uploading.single('image'), function(req, res) { 
-  res.status(204).end(); 
+// app.post('/upload', uploading.single('image'), function(req, res) { 
+//   res.status(204).end(); 
+// });
+
+app.delete('/deleteRoom/:roomId', function(req, res){
+  Room.remove({_id:req.params.roomId}, function(err, rmRoom){
+  });
 });
+
+
 
 
 
@@ -208,14 +246,39 @@ io.on('connection', function(socket){
 
   socket.on('message', function(data){
     console.log(data);
-    io.to(room).emit('message', {username: username, message: data.message});
+    io.to(room).emit('message', {username: username, message: data.message, room:room});
 
-    var newMessage = new Message({message: data.message, username: username, created: Date.now()});
+    var newMessage = new Message({message: data.message, username: username, created: Date.now(), room:room});
+    console.log(data + ' thats data m80 ');
     console.log(newMessage);
 
     newMessage.save(function(err){
-      if (err) throw err;
-      console.log('new message saved');
+      if (err){ 
+        throw err;
+      } else {
+      
+
+      Room.findOneAndUpdate({roomNameTrim:room}, {$push: {'messages': data.message}}, {new:true}, function(err, dbRoom){
+        // console.log(roomTrim);
+        // console.log(Room.roomName);
+        // console.log(roomName);
+        console.log(data.message);
+        console.log(room);
+        if (err) {
+          console.log(err);
+        } else {
+          console.log('i did something');
+          console.log(dbRoom);
+          return dbRoom;
+        }
+
+        //   res.send(err);
+        // } else {
+        //   res.send(dbRoom);
+        // }
+        });
+      }
+      
     });
   });
 
