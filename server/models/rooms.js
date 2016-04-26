@@ -28,6 +28,9 @@ var RoomSchema = new Schema({
     }],
     category: {
       type: String
+    },
+    zipcode: {
+      type: String
     }
     });
 

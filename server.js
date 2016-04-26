@@ -163,7 +163,8 @@ app.post('/createRoom', function(req, res){
     description: req.body.description,
     moderator: req.body.moderator,
     roomNameTrim: req.body.roomNameTrim,
-    category: req.body.category
+    category: req.body.category,
+    zipcode: req.body.zipcode
 
   });
 
