@@ -33,12 +33,14 @@
   padding: 16px;
 }
 .card .card-content {
+  background: linear-gradient(#FFB726, #F6A50F);
   padding: 16px;
   border-radius: 0 0 2px 2px;
   background-clip: padding-box;
   box-sizing: border-box;
 }
 .card .card-content p {
+  background: linear-gradient(#FFB726, #F6A50F);
   margin: 0;
   color: inherit;
 }
@@ -46,6 +48,8 @@
   line-height: 48px;
 }
 .card .card-action {
+  background: linear-gradient(#FFB726, #F6A50F);
+  background: #FFB726;
   border-top: 1px solid rgba(160, 160, 160, 0.2);
   padding: 16px;
 }
@@ -58,4 +62,8 @@
 .card .card-action a:hover {
   color: #ffd8a6;
   text-decoration: none;
+}
+
+#roomForm{
+  color:color: #706E6C;
 }

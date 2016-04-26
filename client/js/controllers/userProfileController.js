@@ -20,5 +20,4 @@ angular.module('chatApp').controller('userProfileController', ['$scope','$http',
     // $window.location.reload();
   };
 
-// '/deleteRoom/' + $stateParams.room
 }]);

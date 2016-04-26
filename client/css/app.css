@@ -38,25 +38,16 @@ a:active{
 
 #loginPage{
   height: 95vh;
-  /*background-image: url('https://images.unsplash.com/photo-1421749810611-438cc492b581?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&s=6cf5c5e54ebe49a76b78b7e17ca3dd47');*/
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
 }
 
-/*#registerPage{
-  height: 95vh;
-  background-image: url('/images/registration.jpeg');
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-}*/
-
 #searchRooms {
   padding-top: 20px;
   padding-left: 15px;
   padding-bottom: 20px;
-  color: white;
+  color: #4A4948;
   font-size: 120%;
 }
 
@@ -67,10 +58,7 @@ a:active{
 
 #rooms-page{
   height: 100vh;
-  background-color: #4D2422;
-/*  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;*/
+  background-color: #F8F5F0;
 }
 
 #chat-history {
@@ -112,12 +100,16 @@ a:active{
 /*Profile Page Sytling*/
 
 #profile-page {
-  background-color: #127E8D;
+  background-color: #F8F5F0;
   height: 100vh;
 }
 
+.text-center{
+  color: #706E6C;
+}
+
 #user-block{
-background-color: #FFD374;
+background: linear-gradient(#FFB726, #F6A50F);
 padding-top: 20px;
 padding-bottom: 20px;
 -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
@@ -127,7 +119,11 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
 
 /*Navbar Styling*/
 
- .navbar.transparent.navbar-inverse .navbar-inner {
+.navbar{
+  background: #C0BEBA;
+}
+
+/* .navbar.transparent.navbar-inverse .navbar-inner {
   border-width: 0px;
   -webkit-box-shadow: 0px 0px;
   box-shadow: 0px 0px;
@@ -135,7 +131,7 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   background-image: -webkit-gradient(linear, 50.00% 0.00%, 50.00% 100.00%, color-stop( 0% , rgba(0,0,0,0.00)),color-stop( 100% , rgba(0,0,0,0.00)));
   background-image: -webkit-linear-gradient(270deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
   background-image: linear-gradient(180deg,rgba(0,0,0,0.00) 0%,rgba(0,0,0,0.00) 100%);
-}
+}*/
 
 /*#bs-example-navbar-collapse-1{
   background-color: white;
@@ -165,6 +161,7 @@ div.rooms-img {
 
 /*Dropdown Styling*/
 .dropdown-menu {
+  background: linear-gradient(#FFB726, #F6A50F);
   width: 302px;
   height: 232px;
   border-radius: 0;
@@ -172,7 +169,8 @@ div.rooms-img {
 }
 
 .profile-btn {
-  background-color: #EEEEEE;
+  background-color: #4A4948;
+  color: #FFB726;
 }
 
 #dropdown-username{
@@ -220,9 +218,24 @@ img.make-it-fit {
 }
 
 .animation{
-  background-image: url('/images/chatgiphy.gif');
+  background-image: url('/images/bee.gif');
   height: 480px;
   width: 100%;
   background-repeat: no-repeat;
   background-size: 100%;
+  /*This flips the image*/
+  -moz-transform: scale(-1, 1);
+  -webkit-transform: scale(-1, 1);
+  -o-transform: scale(-1, 1);
+  -ms-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+.nav-bee{
+  background-image: url('/images/bee.png');
+  height: 70px;
+  width: 70px;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-color: transparent;
 }
