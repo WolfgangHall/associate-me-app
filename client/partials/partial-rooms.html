@@ -1,5 +1,5 @@
 <div class="container-fluid" id="rooms-page">
-<div class="alert alert-success ng-hide" role="alert" ng-show="roomSubmit">Room Successfully Created</div>
+  <div class="alert alert-success ng-hide" role="alert" ng-show="roomSubmit">Room Successfully Created</div>
   <div data-ng-init="getRooms()">
     <div class="row"> 
       <div id="searchRooms">
@@ -11,6 +11,7 @@
             <div class="card-content">
               <p ng-model="roomName" class="roomCard">{{room.roomName}}</p>
               <p class="text-center">{{room.description}}</p>
+              <p class="text-center">{{room.category}}</p>
             </div>
             <div class="card-action">
               <a class="btn sharp btn-block" href="/chat/{{room.roomNameTrim}}">Join {{room.roomName}} Chat Room</a>
@@ -52,6 +53,17 @@
         <div class="form-group">
           <label for="room-description">Room Description</label>
           <input type="text" class="form-control" id="room-description" placeholder="Describe Your Room" ng-model="roomDescription">
+        </div>
+        <div class="form-group">
+          <label for="room-type">Category</label>
+          <select class="form-control" id="room-type" ng-model="category">
+            <option value="Sports">Sports</option>
+            <option value="Food">Food</option>
+            <option value="Current Events">Current Events</option>
+            <option value="Politics">Politics</option>
+            <option value="Other">Other</option>
+            <option value="Misc">Misc</option>
+          </select>
         </div>
       </div>
       <div class="modal-footer">

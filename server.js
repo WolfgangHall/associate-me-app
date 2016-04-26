@@ -117,8 +117,6 @@ app.get('/usersRooms/:user', function(req,res){
 var theUser= req.params.user;
 console.log(theUser +'in server');
 Room.find({moderator: theUser}, function (err, userRooms){
-console.log('I tried to get the users rooms');
-console.log(userRooms);
 res.json(userRooms);
 
 });
@@ -164,7 +162,8 @@ app.post('/createRoom', function(req, res){
     roomName: req.body.roomName,
     description: req.body.description,
     moderator: req.body.moderator,
-    roomNameTrim: req.body.roomNameTrim
+    roomNameTrim: req.body.roomNameTrim,
+    category: req.body.category
 
   });
 
