@@ -25,7 +25,13 @@ var RoomSchema = new Schema({
       type: String
       // type: Schema.Types.ObjectId,
       // ref: 'Message'
-    }]
+    }],
+    category: {
+      type: String
+    },
+    zipcode: {
+      type: String
+    }
     });
 
 

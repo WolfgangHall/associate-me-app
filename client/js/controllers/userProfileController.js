@@ -16,8 +16,9 @@ angular.module('chatApp').controller('userProfileController', ['$scope','$http',
   $scope.deleteRoom = function(roomId){
     $http.delete('/deleteRoom/' + roomId).then(function(response){
     });
-    bootbox.alert('room deleted');
-    // $window.location.reload();
+    bootbox.alert('room deleted', function(){
+      $window.location.reload();
+    });
   };
 
 }]);
