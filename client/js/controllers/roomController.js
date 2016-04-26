@@ -1,7 +1,7 @@
-angular.module('chatApp').controller('roomController', ['$scope','$http','$location', '$cookies', function($scope, $http, $location, $cookies){
+angular.module('chatApp').controller('roomController', ['$scope','$http','$location', '$cookies','$timeout', function($scope, $http, $location, $cookies, $timeout){
 
   $scope.getRooms = function(){
-      $http.get('/rooms').then(function(response){
+      $http.get('/loadRooms').then(function(response){
         $scope.roomCount = response.data.length;
         $scope.rooms = response.data;
         console.log(response.data.length);

@@ -5,7 +5,7 @@ angular.module('chatApp').controller('userProfileController', ['$scope','$http',
 
   $scope.getUserRooms = function(){
     console.log(userName);
-    $http.get('/users/' + userName).then(function(response){
+    $http.get('/usersRooms/' + userName).then(function(response){
       $scope.roomCount = response.data.length;
       $scope.rooms = response.data;
       console.log(response.data);

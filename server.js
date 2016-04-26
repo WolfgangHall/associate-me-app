@@ -87,7 +87,7 @@ app.use(express.static('client'));
 
 
 
-app.get('/rooms', function(req,res){
+app.get('/loadRooms', function(req,res){
   Room.find({}, function (err, rooms) {
        res.json(rooms);
       });
@@ -113,7 +113,7 @@ Room.find({roomNameTrim : theRoom}, function (err, messages) {
 });
 });
 
-app.get('/users/:user', function(req,res){
+app.get('/usersRooms/:user', function(req,res){
 var theUser= req.params.user;
 console.log(theUser +'in server');
 Room.find({moderator: theUser}, function (err, userRooms){
