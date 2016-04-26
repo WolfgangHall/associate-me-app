@@ -8,12 +8,12 @@ angular.module('chatApp').controller('chatController', ['$scope', '$http', 'Sock
     console.log($stateParams.room + "in in getMessages");
    
 
-    $http.get('/chat/' + $stateParams.room).then(function(response){
-      console.log('got here : getMessages tried to run on client');
+    $http.get('/chat/' + $stateParams.room).then(function(messages){
+      // console.log('got here : getMessages tried to run on client');
       // $scope.storedMessages = response.data;
-      console.log(response);
-      console.log(response.data);
-
+      // console.log(response);
+      // console.log(response.data);
+      var messages = messages.data[0].messages;
 
     });
 
