@@ -93,7 +93,7 @@ app.get('/loadRooms', function(req,res){
       });
     });
 
-app.get('/chat/:room', function(req,res){
+app.get('/getChat/:room', function(req,res){
 var theRoom = req.params.room;
 console.log(Room.messages);
 console.log(theRoom + 'in server');
