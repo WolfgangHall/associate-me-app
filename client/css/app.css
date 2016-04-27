@@ -159,6 +159,21 @@ box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   padding-top: 40px;
 }
 
+.navbar-brand {
+  padding: 0px;
+}
+
+.navbar-brand>img {
+  height: 100%;
+  padding: 15px;
+  /*width: auto;*/
+}
+
+
+/*#navLogo{
+  max-width: 100px;
+}*/
+
 /*Dropdown Styling*/
 .dropdown-menu {
   background: linear-gradient(#FFB726, #F6A50F);
