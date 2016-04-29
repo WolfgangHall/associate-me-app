@@ -259,7 +259,7 @@ io.on('connection', function(socket){
       } else {
       
 
-      Room.findOneAndUpdate({roomNameTrim:room}, {$push: {'username': data_id,'messages': data.message}}, {new:true}, function(err, dbRoom){
+      Room.findOneAndUpdate({roomNameTrim:room}, {$push: {'messages': data.message}}, {new:true}, function(err, dbRoom){
         // console.log(roomTrim);
         // console.log(Room.roomName);
         // console.log(roomName);
