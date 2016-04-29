@@ -12,9 +12,10 @@ angular.module('chatApp').controller('chatController', ['$scope', '$http', 'Sock
       // console.log('got here : getMessages tried to run on client');
       // $scope.storedMessages = response.data;
       // console.log(response);
-      // console.log(response.data);
-      var messages = messages.data[0].messages;
-
+      console.log(messages.data);
+      var Messages = messages.data[0].messages;
+      
+          $scope.messages = Messages;
     });
 
 
@@ -70,12 +71,14 @@ angular.module('chatApp').controller('chatController', ['$scope', '$http', 'Sock
 
   Socket.on('message', function(data) {
     $scope.messages.push(data);
+    console.log(data);
 
   });
 
   Socket.on('add-user', function(data) {
     $scope.users.push(data.username);
     $scope.messages.push({username: data.username, message: 'has arrived'});
+    // $scope.messages.push(Messages);
     Socket.emit('request-users', {});
   });
 

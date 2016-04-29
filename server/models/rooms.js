@@ -22,7 +22,7 @@ var RoomSchema = new Schema({
       type: String
     },
     messages : [{
-      type: String
+      type: String,
       // type: Schema.Types.ObjectId,
       // ref: 'Message'
     }],
