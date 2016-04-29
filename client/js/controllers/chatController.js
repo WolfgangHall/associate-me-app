@@ -14,13 +14,19 @@ angular.module('chatApp').controller('chatController', ['$scope', '$http', 'Sock
       // console.log(response);
       console.log(messages.data);
       var Messages = messages.data[0].messages;
-      
-          $scope.messages = Messages;
+      for (var i = 0; i < Messages.length; i++) {
+        $scope.messages.push(Messages[i]);
+      }
+      console.log($scope.messages + 'this is scope.messages');
+
+     // $scope.messages = Messages;
     });
 
 
 
   };
+
+
 
 
 
